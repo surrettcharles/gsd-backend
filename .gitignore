@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# build directory
+build/
+
 # Log file
 *.log
 
@@ -24,4 +27,9 @@ hs_err_pid*
 # gradle - ignore .gradle but ensure gradle-wrapper.jar is included
 .gradle/
 !gradle-wrapper.jar
+
+# eclipse project files
+.project
+.settings/
+.classpath
 
