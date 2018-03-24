@@ -12,6 +12,9 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+
+    // Apply eclipse plugin to add support for managing eclipse-based project files
+    id 'eclipse'
 }
 
 // Define the main class for the application
