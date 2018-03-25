@@ -37,5 +37,16 @@ pipeline {
 				}
 			}
 		}
+		
+		stage('SonarQube') {
+		    steps {
+		        script {
+		            sonar = tool 'SonarQube'
+		            withSonarQubeEnv('SonarQube') {
+		                sh "${sonar}/bin/sonar-scanner -Dsonar.projectVersion=${buildVersion}"
+		            }
+		        }
+		    }
+		}
 	}
 }
