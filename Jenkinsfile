@@ -13,10 +13,10 @@ pipeline {
 		stage('Initialize') {
 		    steps {
 		        script {
-		        	if(GIT_LOCAL_BRANCH == 'master') {
+		        	if(GIT_BRANCH == 'master') {
 		        		buildVersion = VersionNumber versionNumberString: '${BUILD_YEAR}.${BUILD_MONTH}.R${BUILDS_THIS_MONTH}', worstResultForIncrement: 'SUCCESS'
-		        	} else if("${GIT_LOCAL_BRANCH}" ==~ /^features\/.*$/) {
-		        		env.FEATURE = (GIT_LOCAL_BRANCH =~ /^features\/(.*)$/)[0][1]
+		        	} else if("${GIT_BRANCH}" ==~ /^features\/.*$/) {
+		        		env.FEATURE = (GIT_BRANCH =~ /^features\/(.*)$/)[0][1]
 		        		buildVersion = VersionNumber versionNumberString: '${BUILD_YEAR}.${BUILD_MONTH}.F${FEATURE}.${BUILDS_THIS_MONTH_Z}-SNAPSHOT', worstResultForIncrement: 'SUCCESS'
 		        	} else {
 		        		buildVersion = VersionNumber versionNumberString: '${BUILD_YEAR}.${BUILD_MONTH}.${BUILD_DAY}.${BUILDS_TODAY_Z}-SNAPSHOT', worstResultForIncrement: 'SUCCESS'
