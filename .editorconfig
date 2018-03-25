@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+# Unix-style newlines
+end_of_line = lf
+# force blank line at the end of files
+insert_final_newline = true
+# use tabs for indenting
+indent_style = tab
+# don't allow trailing whitespace
+trim_trailing_whitespace = true
