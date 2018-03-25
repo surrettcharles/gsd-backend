@@ -20,6 +20,16 @@ plugins {
 // Define the main class for the application
 mainClassName = 'App'
 
+jar {
+	baseName project.name
+	manifest {
+		attributes(
+			'Implementation-Title': project.name,
+			'Implementation-Version': version
+		)
+	}
+}
+
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
