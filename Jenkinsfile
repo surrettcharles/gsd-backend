@@ -13,7 +13,7 @@ pipeline {
 		stage('Initialize') {
 		    steps {
 		        script {
-		        	if(GIT_LOCAL_BRANCH === 'master') {
+		        	if(GIT_LOCAL_BRANCH == 'master') {
 		        		buildVersion = VersionNumber versionNumberString: '${BUILD_YEAR}.${BUILD_MONTH}.R${BUILDS_THIS_MONTH}', worstResultForIncrement: 'SUCCESS'
 		        	} else if("${GIT_LOCAL_BRANCH}" ==~ /^features\/.*$/) {
 		        		env.FEATURE = (GIT_LOCAL_BRANCH =~ /^features\/(.*)$/)[0][1]
