@@ -23,6 +23,9 @@ pipeline {
 		        	} else {
 		        		buildVersion = VersionNumber versionNumberString: '${BUILD_YEAR}.${BUILD_MONTH}.${BUILD_DAY}.${BUILDS_TODAY_Z}-SNAPSHOT', worstResultForIncrement: 'SUCCESS'
 		        	}
+		        	
+		        	currentBuild.description = "$buildVersion ${currentBuild.description}"
+
 		        }
 		    }
 
